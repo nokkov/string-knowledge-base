@@ -15,3 +15,7 @@ func Info() {
 func PrintGreen(message string) {
 	color.Green(message)
 }
+
+func PrintRed(message string) {
+	color.Red(message)
+}
