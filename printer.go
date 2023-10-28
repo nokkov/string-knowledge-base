@@ -5,13 +5,13 @@ import (
 	"github.com/fatih/color"
 )
 
-func info() {
+func Info() {
 	fmt.Println("<><><><><><><><><><><>")
 	fmt.Println("<> Chesnokov Arkady <>")
 	fmt.Println("<>    AI LAB: 3     <>")
 	fmt.Println("<><><><><><><><><><><>")
 }
 
-func printGreen(message string) {
+func PrintGreen(message string) {
 	color.Green(message)
 }
