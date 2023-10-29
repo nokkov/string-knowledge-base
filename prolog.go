@@ -2,8 +2,7 @@ package main
 
 import "github.com/mndrix/golog"
 
-func initKnowledgeBase() golog.Machine {
-	kb := golog.NewMachine().Consult(`
+var knowledgeBase string = `
 		ingredient(nether_wart).
 		ingredient(glowstone_dust).
 		ingredient(glistering_melon).
@@ -33,7 +32,9 @@ func initKnowledgeBase() golog.Machine {
 			nonvar(Y),
 			nonvar(Z),
 			Result = 'Potion!'.
-	`)
+`
 
+func initKnowledgeBase(knowledgeBase string) golog.Machine {
+	kb := golog.NewMachine().Consult(knowledgeBase)
 	return kb
 }
