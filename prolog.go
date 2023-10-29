@@ -1,8 +1,11 @@
 package main
 
-import "github.com/mndrix/golog"
+import (
+	"fmt"
+	"github.com/mndrix/golog"
+)
 
-var knowledgeBase string = `
+var knowledgeBase = `
 		ingredient(nether_wart).
 		ingredient(glowstone_dust).
 		ingredient(glistering_melon).
@@ -32,9 +35,23 @@ var knowledgeBase string = `
 			nonvar(Y),
 			nonvar(Z),
 			Result = 'Potion!'.
+
+		potion(sugar, spider_eyes, gunpowder).
+		potion(sugar, javac, gunpowder).
+		potion(linux, javac, tears).
 `
 
 func initKnowledgeBase(knowledgeBase string) golog.Machine {
 	kb := golog.NewMachine().Consult(knowledgeBase)
 	return kb
+}
+
+// TODO: check if ingredient exists
+func addIngredient(ingredient string) {
+	knowledgeBase += fmt.Sprintf("\ningredient(%s).", ingredient)
+}
+
+// TODO: check if potion exists
+func addPotion(X, Y, Z string) {
+	knowledgeBase += fmt.Sprintf("\npotion(%s, %s, %s).", X, Y, Z)
 }
