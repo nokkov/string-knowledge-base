@@ -9,6 +9,14 @@ func ExecuteCommand(command string) {
 
 	switch tokens[0] {
 	case "ing:":
+		switch tokens[1] {
+
+		case "!":
+			PrintAllIngredients()
+		}
+
+	case "?":
+		PrintRandomPotion()
 
 	}
 

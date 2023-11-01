@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/mndrix/golog"
+	"math/rand"
+	"regexp"
 	"strings"
 )
 
@@ -63,4 +65,21 @@ func IsIngredientExists(ingredient string) bool {
 func IsPotionExists(X, Y, Z string) bool {
 	potion := fmt.Sprintf("potion(%s, %s, %s).", X, Y, Z)
 	return strings.Contains(knowledgeBase, potion)
+}
+
+func PrintAllIngredients() {
+	re := regexp.MustCompile(`ingredients\((.*?)\)`)
+	ingredients := re.FindAllStringSubmatch(knowledgeBase, -1)
+
+	for i, ingredient := range ingredients {
+		fmt.Printf("%d) %s", i+1, ingredient)
+	}
+}
+
+func PrintRandomPotion() {
+	re := regexp.MustCompile(`potion\((.*?)\)`)
+	potions := re.FindAllStringSubmatch(knowledgeBase, -1)
+
+	potionIdx := rand.Intn(len(potions))
+	fmt.Printf("Random potion: %s", potions[potionIdx])
 }
