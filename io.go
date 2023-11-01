@@ -13,10 +13,10 @@ func ExecuteCommand(command string) {
 
 		case "!":
 			PrintAllIngredients()
-		}
 
-	case "?":
-		PrintRandomPotion()
+		case "?":
+			PrintRandomPotion()
+		}
 
 	}
 
