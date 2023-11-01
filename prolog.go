@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/mndrix/golog"
+	"strings"
 )
 
 var knowledgeBase = `
@@ -41,17 +42,25 @@ var knowledgeBase = `
 		potion(linux, javac, tears).
 `
 
-func initKnowledgeBase(knowledgeBase string) golog.Machine {
+func InitKnowledgeBase() golog.Machine {
 	kb := golog.NewMachine().Consult(knowledgeBase)
 	return kb
 }
 
-// TODO: check if ingredient exists
-func addIngredient(ingredient string) {
+func AddIngredient(ingredient string) {
 	knowledgeBase += fmt.Sprintf("\ningredient(%s).", ingredient)
 }
 
-// TODO: check if potion exists
-func addPotion(X, Y, Z string) {
+func AddPotion(X, Y, Z string) {
 	knowledgeBase += fmt.Sprintf("\npotion(%s, %s, %s).", X, Y, Z)
+}
+
+func IsIngredientExists(ingredient string) bool {
+	ingredient = "ingredient(" + ingredient + ")."
+	return strings.Contains(knowledgeBase, ingredient)
+}
+
+func IsPotionExists(X, Y, Z string) bool {
+	potion := fmt.Sprintf("potion(%s, %s, %s).", X, Y, Z)
+	return strings.Contains(knowledgeBase, potion)
 }
