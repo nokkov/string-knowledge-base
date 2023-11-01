@@ -29,6 +29,7 @@ func PrintRules() {
 	PrintRed("ing: ingredients (1..n) => poison exists or not\n")
 	PrintRed("ing: ! => list of all ingredients\n")
 	PrintRed("ing: ? => receipt of random potion\n")
-	PrintRed("ing: * => new potion\n")
-	PrintRed("something else => exit program\n")
+	PrintRed("ing: * => new ingredient\n")
+	PrintRed("ing: *** => new potion\n")
+	PrintRed("stop => exit program\n")
 }
