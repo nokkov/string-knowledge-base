@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/mndrix/golog"
 	"math/rand"
 	"regexp"
 	"strings"
@@ -31,23 +30,11 @@ var knowledgeBase = `
 		ingredient(mysql).
 		ingredient(javac).
 		ingredient(linux).
-		
-		%3 arguments are passed => this is definitely a potion
-		isPotion(X, Y, Z, Result) :-
-			nonvar(X),
-			nonvar(Y),
-			nonvar(Z),
-			Result = 'Potion!'.
 
 		potion(sugar, spider_eyes, gunpowder).
 		potion(sugar, javac, gunpowder).
 		potion(linux, javac, tears).
 `
-
-func InitKnowledgeBase() golog.Machine {
-	kb := golog.NewMachine().Consult(knowledgeBase)
-	return kb
-}
 
 func AddIngredient(ingredient string) {
 	knowledgeBase += fmt.Sprintf("\ningredient(%s).", ingredient)
@@ -81,5 +68,5 @@ func PrintRandomPotion() {
 	potions := re.FindAllStringSubmatch(knowledgeBase, -1)
 
 	potionIdx := rand.Intn(len(potions))
-	fmt.Printf("Random potion: %s", potions[potionIdx])
+	fmt.Printf("Random potion: %s \n", potions[potionIdx])
 }
