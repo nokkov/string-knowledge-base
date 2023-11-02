@@ -1,5 +1,7 @@
-# prolog-communication
-Laboratory work on Artificial Intelligence Systems. Implementation of the query parsing mechanism for the prolog knowledge base. •ᴗ• 
+# string-knowledge-base
+Laboratory work on Artificial Intelligence Systems. Implementation of the query parsing mechanism for the string knowledge base. •ᴗ• 
+
+Implementation of query mechanism for prolog knowledge base: [PLACE LINK HERE]
 
 ![task](https://github.com/nokkov/prolog-communication/assets/139870895/a298c3f3-a22b-4d86-b93e-6730b8234de5)
 
